@@ -217,7 +217,7 @@ export default {
           ],
           mode: "payment",
           successUrl: "https://elegant-swartz-941517.netlify.app/successa",
-          cancelUrl: "https://example.com/cancel",
+          cancelUrl: "https://elegant-swartz-941517.netlify.app/",
           shippingAddressCollection: {
             allowedCountries: ["RO"],
           },
