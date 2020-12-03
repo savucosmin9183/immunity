@@ -75,23 +75,24 @@
           <div class="adresa_livrare" v-if="plata == 'numerar'">
             <p class="title">ADRESA DE LIVRARE</p>
             <div class="inputs_line">
-              <input type="text" placeholder="oras" class="input" />
-              <input type="text" placeholder="strada" class="input" />
+              <input type="text" placeholder="oras" class="input" v-model="oras" />
+              <input type="text" placeholder="strada" class="input" v-model="strada"/>
             </div>
             <div class="inputs_line">
-              <input type="text" placeholder="bloc" class="input" />
-              <input type="text" placeholder="scara" class="input" />
+              <input type="text" placeholder="bloc" class="input" v-model="bloc"/>
+              <input type="text" placeholder="scara" class="input" v-model="scara"/>
             </div>
             <div class="inputs_line">
-              <input type="text" placeholder="etaj" class="input" />
-              <input type="text" placeholder="apartament" class="input" />
+              <input type="text" placeholder="etaj" class="input" v-model="etaj"/>
+              <input type="text" placeholder="apartament" class="input" v-model="apartament"/>
             </div>
             <textarea
               placeholder="detalii aditionale"
               class="area_text"
+              v-model="detalii"
             ></textarea>
           </div>
-          <button class="command_button_modal" @click="checkout">
+          <button class="command_button_modal" @click="cumpara">
             CUMPARA ACUM
           </button>
         </div>
@@ -149,23 +150,24 @@
           <div class="adresa_livrare_mobil" v-if="plata == 'numerar'">
             <p class="title_mobile">ADRESA DE LIVRARE</p>
             <div class="inputs_line">
-              <input type="text" placeholder="oras" class="input_mobile" />
-              <input type="text" placeholder="strada" class="input_mobile" />
+              <input type="text" placeholder="oras" class="input_mobile" v-model="oras" />
+              <input type="text" placeholder="strada" class="input_mobile" v-model="strada" />
             </div>
             <div class="inputs_line">
-              <input type="text" placeholder="bloc" class="input_mobile" />
-              <input type="text" placeholder="scara" class="input_mobile" />
+              <input type="text" placeholder="bloc" class="input_mobile" v-model="bloc"/>
+              <input type="text" placeholder="scara" class="input_mobile" v-model="scara"/>
             </div>
             <div class="inputs_line">
-              <input type="text" placeholder="etaj" class="input_mobile" />
-              <input type="text" placeholder="apartament" class="input_mobile" />
+              <input type="text" placeholder="etaj" class="input_mobile" v-model="etaj"/>
+              <input type="text" placeholder="apartament" class="input_mobile" v-model="apartament"/>
             </div>
             <textarea
               placeholder="detalii aditionale"
               class="area_text_mobile"
+              v-model="detalii"
             ></textarea>
           </div>
-          <button class="command_button_modal_mobile" @click="checkout">
+          <button class="command_button_modal_mobile" @click="cumpara">
             CUMPARA ACUM
           </button>
         </div>
@@ -181,6 +183,13 @@ export default {
     return {
       cantitate: 1,
       plata: "card",
+      oras: "",
+      strada: "",
+      bloc: "",
+      apartament: "",
+      scara: "",
+      etaj: "",
+      detalii: ""
     };
   },
   methods: {
@@ -201,23 +210,23 @@ export default {
     },
     checkout() {
       const stripe = window.Stripe(
-        "pk_test_51Hriy0FkOuIHMOmbDvbPlDrbJVJnE9SAhCICodVnDz8SgmZvaBWXQx6pdPTWAQbbTjqvBx7VkavDiwzsiHoK4E0300CMM7VA0B"
+        "pk_live_51HtsBwDXwGLIBBjpKUhddM5rAq7DjJrWq2BoIhRJtBwBBkilPcGBil6Qt3ADTdlT06LSaP66ThMIzZXXyINfmRRL00fXTzwv7M"
       );
       stripe
         .redirectToCheckout({
           lineItems: [
             {
-              price: "price_1HrjiyFkOuIHMOmbCc33IQ6g", // Replace with the ID of your price
+              price: "price_1HuJNuDXwGLIBBjpC9TI5lJD", // Replace with the ID of your price
               quantity: this.cantitate,
             },
             {
-                price: "price_1HuD6SFkOuIHMOmbHDprOyAU",
+                price: "price_1HuJOeDXwGLIBBjpFGVlYDhE",
                 quantity: 1,
             }
           ],
           mode: "payment",
-          successUrl: "https://elegant-swartz-941517.netlify.app/successa",
-          cancelUrl: "https://elegant-swartz-941517.netlify.app/",
+          successUrl: "http://www.immunitybysonslim.com/successa",
+          cancelUrl: "http://www.immunitybysonslim.com",
           shippingAddressCollection: {
             allowedCountries: ["RO"],
           },
@@ -230,27 +239,34 @@ export default {
         });
     },
     cumpara() {
+      console.log(this.plata)
       if (this.plata == "card") {
-        //this.send_card_mail();
         this.checkout();
-        localStorage.setItem('guard', '1');
       } else {
         this.send_cash_mail();
       }
     },
-    send_card_mail() {
+    send_cash_mail() {
       var templateParams = {
-
+        oras: this.oras,
+        strada: this.strada,
+        bloc: this.bloc,
+        scara: this.scara,
+        apartament: this.apartament,
+        etaj: this.etaj,
+        detalii: this.detalii
       };
-
-      emailjs.send("service_fjyef0t", "template_xr5r809", templateParams).then(
+      var newthis = this;
+      emailjs.send("service_fjyef0t", "template_wk0vumu", templateParams).then(
         function(response) {
           console.log("SUCCESS!", response.status, response.text);
+          newthis.$router.push({name: 'Successb'})
         },
         function(error) {
           console.log("FAILED...", error);
         }
       );
+      
     },
   },
 };

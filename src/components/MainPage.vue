@@ -507,7 +507,7 @@ html{
 
 .mintcopy{
   position: absolute;
-  top: -50px;
+  top: -200px;
   left: 0;
   width: 100%;
   z-index: -1;
