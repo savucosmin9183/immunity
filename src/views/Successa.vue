@@ -11,10 +11,24 @@
 
 <script>
 // @ is an alias to /src
-
+import emailjs from "emailjs-com";
 
 export default {
   name: 'Success',
+  mounted(){
+      var templateParams = {
+
+      };
+
+      emailjs.send("service_fjyef0t", "template_xr5r809", templateParams).then(
+        function(response) {
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        function(error) {
+          console.log("FAILED...", error);
+        }
+      );
+  }
   
 }
 </script>
