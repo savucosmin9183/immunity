@@ -103,30 +103,11 @@
     <div class="modal_title_mobile">
       <img src="@/assets/cutie.png" alt="cutie" class="cutie_mobile" />
       <div class="product_details_mobile">
-        <p class="modal_title">IMMUNITY BY SON-SLIM</p>
+        <p class="modal_title">IMMUNITY <br>BY SON-SLIM</p>
         <p class="pret"><b>399</b> RON*</p>
       </div>
     </div>
-   <div class="first_line_modal">
-     
-      <p class="first_line_title_mobile">CONTINUT:</p>
-      <div class="continut">
-        <p class="gratuita_mobile">IMMUNITY TONIC (1 sticla 250ml.)</p>
-        <img src="@/assets/check-mark.png" alt="checkmark" class="check_mobile" />
-      </div>
-      <div class="continut">
-        <p class="gratuita_mobile">IMMUNITY POWER (2 sticle a cate 250ml. fiecare)</p>
-        <img src="@/assets/check-mark.png" alt="checkmark" class="check_mobile" />
-      </div>
-      <div class="continut">
-        <p class="gratuita_mobile">IMMUNITY HELP (3 sticle a cate 250ml. fiecare)</p>
-        <img src="@/assets/check-mark.png" alt="checkmark" class="check_mobile" />
-      </div>
-      <div class="continut">
-        <p class="gratuita_mobile">IMMUNITY FORTE (2 cutii a cate 120gr. fiecare)</p>
-        <img src="@/assets/check-mark.png" alt="checkmark" class="check_mobile" />
-      </div>
-    </div>
+   
     <div class="orizontal_line_mobile">
           <div class="cantitate_mobile">
             <p>CANTITATE</p>
@@ -143,29 +124,29 @@
             <div class="metoda_div_mobile">
               <div>
                 <div
-                  class="alegere"
+                  class="alegere_mobil"
                   :class="plata == 'card' ? 'active' : ''"
                   @click="plata_switch('card')"
                 >
-                  <img src="@/assets/card.png" alt="" class="card_icon" />
+                  <img src="@/assets/card.png" alt="" class="card_icon_mobil" />
                 </div>
-                <p>CARD</p>
+                <p class="card_mobile">CARD</p>
               </div>
               <div>
                 <div
-                  class="alegere"
+                  class="alegere_mobil"
                   :class="plata == 'numerar' ? 'active' : ''"
                   @click="plata_switch('numerar')"
                 >
-                  <img src="@/assets/money.png" alt="" class="card_icon" />
+                  <img src="@/assets/money.png" alt="" class="card_icon_mobil" />
                 </div>
-                <p>CASH</p>
+                <p class="card_mobile">CASH</p>
               </div>
             </div>
           </div>
         </div>
         <div class="orizontal_line_two_mobile">
-          <div class="adresa_livrare" v-if="plata == 'numerar'">
+          <div class="adresa_livrare_mobil" v-if="plata == 'numerar'">
             <p class="title_mobile">ADRESA DE LIVRARE</p>
             <div class="inputs_line">
               <input type="text" placeholder="oras" class="input_mobile" />
@@ -235,7 +216,7 @@ export default {
             }
           ],
           mode: "payment",
-          successUrl: "https://example.com/success",
+          successUrl: "http://localhost:8081/successa",
           cancelUrl: "https://example.com/cancel",
           shippingAddressCollection: {
             allowedCountries: ["RO"],
@@ -252,6 +233,7 @@ export default {
       if (this.plata == "card") {
         //this.send_card_mail();
         this.checkout();
+        localStorage.setItem('guard', '1');
       } else {
         this.send_cash_mail();
       }
@@ -522,6 +504,7 @@ input[type="number"] {
 
 .product_details_mobile p:last-of-type{
   font-size: 20px;
+  margin-top: 5px;
 }
 
 .descriere_mobile{
@@ -559,11 +542,22 @@ input[type="number"] {
 }
 
 .cantitate_patrat_mobile{
-  width: 80px;
-  height: 60px;
+  width: 60px;
+  height: 40px;
   text-align: center;
   font-size: 25px;
   margin-top: 10px;
+}
+
+.alegere_mobil {
+    width: 60px;
+    height: 40px;
+    border: 1px solid black;
+    margin-right: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .metoda_mobile{
@@ -586,9 +580,15 @@ input[type="number"] {
   margin-left: 20px;
 }
 
+.adresa_livrare_mobil{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.command_button_modal_mobile{
-    width: 50vw;
+
+.command_button_modal_mobile {
+    width: 250px;
     padding-left: 15px;
     padding-right: 15px;
     height: 50px;
@@ -598,7 +598,7 @@ input[type="number"] {
     align-items: center;
     border: none;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 25px;
 }
 
@@ -609,17 +609,18 @@ input[type="number"] {
 }
 
 .input_mobile {
-  width: 150px;
+  width: 100px;
   height: 25px;
   padding-left: 10px;
   margin-right: 15px;
   font-size: 16px;
   outline: none;
+  margin-left: 10px;
 }
 
 .area_text_mobile {
-  width: 332px;
-  height: 30px;
+  width: 240px;
+  height: 50px;
   padding-left: 10px;
   padding-top: 10px;
   margin-top: 15px;
@@ -632,4 +633,19 @@ input[type="number"] {
   left: 20px;
   font-size: 14px;
 }
+
+.card_icon_mobil {
+    height: 28px;
+}
+
+.card_mobile{
+  margin-left: 10px;
+  font-size: 13px;
+}
+
+.title_mobile{
+  font-size: 14px;
+  font-weight: 900;
+}
+
 </style>

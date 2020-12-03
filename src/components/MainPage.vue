@@ -228,6 +228,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 
+a{
+  text-decoration: none;
+}
+
 .first_page{
   
   padding-left: 250px;

@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Success from '../views/Success.vue'
+import Successa from '../views/Successa.vue'
+import Successb from '../views/Successb.vue'
 
 Vue.use(VueRouter)
 
@@ -12,9 +13,15 @@ const routes = [
     component: Home
   },
   {
-    path: '/success',
-    name: 'Success',
-    component: Success
+    path: '/successa',
+    name: 'Successa',
+    component: Successa,
+  
+  },
+  {
+    path: '/successb',
+    name: 'Successb',
+    component: Successb
   }
 ]
 
