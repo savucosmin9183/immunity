@@ -2,7 +2,7 @@
   <div class="navbar">
     <img src="@/assets/logo.png" alt="logo" class="logo">
     <div class="items">
-        <a href="#sectionone"><p class="item">Despre produs</p></a>
+        <a href="#third"><p class="item">Despre produs</p></a>
         <a href="#footer"><p class="item">Contact</p></a>
         <div class="comanda" @click="show_modal">
             <p>Comandă acum</p>

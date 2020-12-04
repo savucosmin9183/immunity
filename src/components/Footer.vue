@@ -2,14 +2,14 @@
   <div class="footer" id="footer">
     <div class="first_element">
         <img src="@/assets/logo.png" alt="logo" class="footer_logo">
-        <p>Pachetul IMMUNITY este o creație inovatoare, compusă din ingrediente naturale și inedite, de o calitate superioară.</p>
+        <p>Se fac livrări si in țările UE , însă tariful transportului este 20€ , iar ca opțiune de plata este doar ramburs.</p>
     </div>
     <div class="second_element">
-        <p>Tel: 0760 388 760</p>
-        <p>Email: son.slim@yahoo.com</p>
+        <p>Tel: 0726 957 802</p>
+        <p>Email: immunity.sonslim@gmail.com</p>
         <div class="socials">
-            <img src="@/assets/facebook.png" alt="facebook icon">
-            <img src="@/assets/instagram.png" alt="instagram icon">
+            <a href="https://www.facebook.com/Son-Slim-Cabinet-ThNutritionist-by-Sonia-Burtic-1880607128667326" target="blank"><img src="@/assets/facebook.png" alt="facebook icon"></a>
+            <a href="https://www.instagram.com/sonslimcabinetth.nutritionist/" target="blank"><img src="@/assets/instagram.png" alt="instagram icon"></a>
         </div>
     </div>
     <div class="third_element">

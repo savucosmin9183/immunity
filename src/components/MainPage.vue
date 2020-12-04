@@ -2,7 +2,7 @@
   <div class="main-page" v-if="$resize && $mq.above(992)">
     <section class="first_page">
       <img src="@/assets/mist_bg.png" alt="mists" class="mists">
-      <img src="@/assets/visual.png" alt="visual" class="visual">
+      <img src="@/assets/visual2.png" alt="visual" class="visual">
       <img src="@/assets/mist_front.png" alt="mists" class="mists_front">
       <Navbar/>
       <div class="hero">
@@ -14,14 +14,12 @@
     </section>
     <section class="second_page">
       <img src="@/assets/leaves.png" alt="leaves" class= "leaves">
-      <div>
-        <img src="@/assets/ingrediente.png"  id="sectionone" alt="ingrediente" class="ingrediente">
-      </div>
+      
 
       <div class="recomandare" id="sonia">
         <img src="@/assets/sonia.png" alt="sonia">
         <div class="second_column">
-          <p>RECOMANDAT DE NUTRIȚIONIST</p>
+          <p>RECOMANDAT DE SONSLIM</p>
           <div class="paragraphs">
             <div class="paragraph">
               <p>“SĂNATATEA TA ESTE PASIUNEA MEA!” sub această premiză am inceput totul, adică din pasiune pentru medicină, pentru tot ceea ce inseamnă un stil de viată sănatos si echilibrat . 
@@ -41,25 +39,46 @@ Acest concept respectă in continuare principiile mele, respectiv totul natural 
       </div>                             
     </section>
 
-    <section class="third_page">
+    <section class="third_page" id="third">
       <p>Pachetul <b>IMMUNITY by SonSlim</b> este conceput pentru <b>30 de zile</b> si veți regăsi urmatoarele produse:</p>
     
       <div class="products">
         <div class="product">
           <img src="@/assets/tonic.png" alt="tonic">
-          <p class="product_title">IMMUNITY TONIC</p>
+          <div class="descriere_produse">
+            <p class="product_title">IMMUNITY TONIC</p>
+            <p class="desc">Acest produs este un extract din fructe de soc, hidroalcoolic, 100% natural, special conceput pentru a ajuta in afectiuni acute ale cailor respiratorii, totodata tonifica musculatura plamanului.
+<br><br>Are actiuni detoxifiante, curata profund organismul prin eliminarea excesului de lichide din tesuturi, a toxinelor si produsilor reziduali.</p>
+          </div>
+          
         </div>
         <div class="product">
           <img src="@/assets/power.png" alt="power">
-          <p class="product_title">IMMUNITY POWER</p>
+          <div class="descriere_produse">
+            <p class="product_title">IMMUNITY POWER</p>
+            <p class="desc">Acest produs este un sirop de catina, obtinut prin presare la rece, 100% natural, care are rol vitaminizant, sustine sistemul imunitar, fortifica si revigoreaza organismul, asigurand un aport bogat de vitamine ( A, C, B1, B2, B6, B9, E, K, P, F, ), betacaroten, uleiuri complexe, acizi grasi polinesaturati, serotonina, aminoacizi, enzime si minerale.
+<br><br>Totodata studiile demonstreaza ca un consum regulat de catina este benefic pentru sanatatea inimii si poate reduce riscul de aparitie a bolilor cardiovasculare.</p>
+          </div>
+          
         </div>
+      </div>
+      <div class="products">
         <div class="product">
           <img src="@/assets/help.png" alt="help">
-          <p class="product_title">IMMUNITY HELP</p>
+          <div class="descriere_produse">
+            <p class="product_title">IMMUNITY HELP</p>
+            <p class="desc">Acest produs este un sirop din plante medicinale atent selectionate, mugurii de pin fiind recoltati in luna februarie, cand principiul activ are cea mai buna calitate.
+<br><br>Este un bun imunostimulator, antibacterian, antiinflamator, care tonifica plamanii si ajuta la degajarea cailor respiratorii.</p>
+          </div>
+          
         </div>
         <div class="product">
           <img src="@/assets/forte.png" alt="forte">
-          <p class="product_title">IMMUNITY FORTE</p>
+          <div class="descriere_produse">
+            <p class="product_title">IMMUNITY FORTE</p>
+            <p class="desc">Acest produs este un ceai obtinut dintr-un amestec perfect de plante medicinale. El completeaza efectul celorlalte produse, respectiv intareste sistemul imunitar, reduce aparitia problemelor respiratorii, antispastic, fluidizant al secretiilor traheo-bronsice si antiinflamator.</p>
+          </div>
+          
         </div>
       </div>
       
@@ -86,14 +105,13 @@ Acest concept respectă in continuare principiile mele, respectiv totul natural 
     <section class="fourth_page">
       <div class="image_centered">
         <div class="image_container">
-          <img src="@/assets/yoga.png" alt="yoga">
-          <img src="@/assets/tea_leaves.png" alt="teacup" class="teacup">
+          <img src="@/assets/produse.jpg" alt="produse" class="produse_poza">
+          
         </div>
-        <div class="white_text">
-          <p>Modul in care eu concep dietele pentru pacienții mei este un concept unic in România, abordez fiecare pacient din toate punctele de vedere, scopul meu este sa îi schimb viața , in bine evident si nu doar aspectul fizic.
-          </p>
-          <img src="@/assets/ghilimele.png" alt="ghilimele" class="ghilimele">
-        </div>
+        <div>
+        <img src="@/assets/ingrediente.png"  id="sectionone" alt="ingrediente" class="ingrediente">
+      </div>
+        
       </div>
     </section>
 
@@ -114,16 +132,14 @@ Acest concept respectă in continuare principiile mele, respectiv totul natural 
       <img src="@/assets/logo.png" alt="logo" class="logo_mobile">
       <img src="@/assets/mist_bg.png" alt="mists" class="mists">
       <img src="@/assets/mist_front.png" alt="mists" class="mists_front">
-      <img src="@/assets/visual.png" alt="visual" class="visual_mobile">
+      <img src="@/assets/visual2.png" alt="visual" class="visual_mobile">
       <p class="main_title_mobile"><b>Sănătatea ta</b> este<br><b>pasiunea mea!</b></p>
       <a href="#sonia_mobil"><div class="first_page_button button_mobile">
           <p>Află mai multe</p>
       </div></a>
       <img src="@/assets/leaves.png" alt="leaves" class= "leaves_mobile">
-      <div>
-        <img src="@/assets/ing.png" alt="ingrediente" class="ingrediente_mobile">
-      </div>
-      <p class="recomandare_titlu_mobil" id="sonia_mobil">RECOMANDAT DE NUTRIȚIONIST</p>
+      
+      <p class="recomandare_titlu_mobil" id="sonia_mobil">RECOMANDAT DE SONSLIM</p>
       
         <img src="@/assets/sonia.png" alt="sonia" class="sonia_mobil">
         <div class="paragraf_mobil">
@@ -146,43 +162,59 @@ Acest concept respectă in continuare principiile mele, respectiv totul natural 
           <p>Pachetul <b>IMMUNITY by SonSlim</b> este conceput pentru <b>30 de zile</b> si veți regăsi urmatoarele produse:</p>
           <div class="products_mobile_row">
             <div class="product_mobile">
-              <img src="@/assets/tonic.png" alt="tonic" class="product_image_mobile">
-              <p class="product_title"><b>IMMUNITY TONIC</b></p>
-           </div>
-            <div class="product_mobile">
-              <img src="@/assets/power.png" alt="power" class="product_image_mobile">
-              <p class="product_title"><b>IMMUNITY POWER</b></p>
-            </div>
-          </div>
-          <div class="products_mobile_row">
-              <div class="product_mobile">
-                <img src="@/assets/help.png" alt="help" class="product_image_mobile">
-                <p class="product_title"><b>IMMUNITY HELP</b></p>
-              </div>
-              <div class="product_mobile">
-                <img src="@/assets/forte.png" alt="forte" class="product_image_mobile">
-                <p class="product_title"><b>IMMUNITY FORTE</b></p>
-              </div>
+          <img src="@/assets/tonic.png" alt="tonic" class="product_image_mobile">
+          <div class="descriere_produse_mobile">
+            <p class="product_title">IMMUNITY TONIC</p>
+            <p class="desc_mobile">Acest produs este un extract din fructe de soc, hidroalcoolic, 100% natural, special conceput pentru a ajuta in afectiuni acute ale cailor respiratorii, totodata tonifica musculatura plamanului.
+<br><br>Are actiuni detoxifiante, curata profund organismul prin eliminarea excesului de lichide din tesuturi, a toxinelor si produsilor reziduali.</p>
           </div>
           
         </div>
-        <img src="@/assets/img.jpg" alt="produse" class="produse">
-        <div class="white_text_mobile">
-          <p>Modul in care eu concep dietele pentru pacienții mei este un concept unic in România, abordez fiecare pacient din toate punctele de vedere, scopul meu este sa îi schimb viața , in bine evident si nu doar aspectul fizic.
-          </p>
-          <img src="@/assets/ghilimele.png" alt="ghilimele" class="ghilimele_mobile">
+            <div class="product_mobile">
+          <img src="@/assets/power.png" alt="power" class="product_image_mobile">
+          <div class="descriere_produse_mobile">
+            <p class="product_title">IMMUNITY POWER</p>
+            <p class="desc_mobile">Acest produs este un sirop de catina, obtinut prin presare la rece, 100% natural, care are rol vitaminizant, sustine sistemul imunitar, fortifica si revigoreaza organismul, asigurand un aport bogat de vitamine ( A, C, B1, B2, B6, B9, E, K, P, F, ), betacaroten, uleiuri complexe, acizi grasi polinesaturati, serotonina, aminoacizi, enzime si minerale.
+<br><br>Totodata studiile demonstreaza ca un consum regulat de catina este benefic pentru sanatatea inimii si poate reduce riscul de aparitie a bolilor cardiovasculare.</p>
+          </div>
+          
+        </div>
+          
+              <div class="product_mobile">
+          <img src="@/assets/help.png" alt="help" class="product_image_mobile">
+          <div class="descriere_produse_mobile">
+            <p class="product_title">IMMUNITY HELP</p>
+            <p class="desc_mobile">Acest produs este un sirop din plante medicinale atent selectionate, mugurii de pin fiind recoltati in luna februarie, cand principiul activ are cea mai buna calitate.
+<br><br>Este un bun imunostimulator, antibacterian, antiinflamator, care tonifica plamanii si ajuta la degajarea cailor respiratorii.</p>
+          </div>
+          
+        </div>
+              <div class="product_mobile">
+          <img src="@/assets/forte.png" alt="forte" class="product_image_mobile">
+          <div class="descriere_produse_mobile">
+            <p class="product_title">IMMUNITY FORTE</p>
+            <p class="desc_mobile">Acest produs este un ceai obtinut dintr-un amestec perfect de plante medicinale. El completeaza efectul celorlalte produse, respectiv intareste sistemul imunitar, reduce aparitia problemelor respiratorii, antispastic, fluidizant al secretiilor traheo-bronsice si antiinflamator.</p>
+          </div>
+          
+        </div>
+          </div>
+          
+        </div>
+        <img src="@/assets/produse.jpg" alt="produse" class="produse">
+        <div>
+          <img src="@/assets/ing.png" alt="ingrediente" class="ingrediente_mobile">
         </div>
         <div class="footer_mobile">
           <div class="footer_div">
             <img src="@/assets/logo.png" alt="logo" class="logo_mobile">
-             <p>Pachetul IMMUNITY este o creație inovatoare, compusă din ingrediente naturale și inedite, de o calitate superioară.</p>
+             <p>Se fac livrări si in țările UE , însă tariful transportului este 20€ , iar ca opțiune de plata este doar ramburs.</p>
           </div>
-          <div class="second_element">
-            <p>Tel: 0760 388 760</p>
-            <p>Email: son.slim@yahoo.com</p>
-            <div class="socials">
-                <img src="@/assets/facebook.png" alt="facebook icon" class="icon">
-                <img src="@/assets/instagram.png" alt="instagram icon" class="icon">
+          <div class="second_element_mobile">
+            <p>Tel: 0726 957 802</p>
+            <p>Email: immunity.sonslim@gmail.com</p>
+            <div class="socials_mobile">
+                <a href="https://www.facebook.com/Son-Slim-Cabinet-ThNutritionist-by-Sonia-Burtic-1880607128667326" target="blank"><img src="@/assets/facebook.png" alt="facebook icon" class="icon"></a>
+            <a href="https://www.instagram.com/sonslimcabinetth.nutritionist/" target="blank"><img src="@/assets/instagram.png" alt="instagram icon" class="icon"></a>
             </div>
           </div>
         </div>
@@ -250,6 +282,14 @@ a{
   padding-right: 250px;
 }
 
+.socials_mobile{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
 .fourth_page{
   padding-left: 250px;
   padding-right: 250px;
@@ -262,6 +302,7 @@ html{
   background-color: #150f16;
   font-family: 'Montserrat';
   scroll-behavior: smooth;
+  
 }
 
 *{
@@ -304,8 +345,8 @@ html{
 
 .visual{
   position: absolute;
-  top: 20vh;
-  left: 50vw;
+  top: 16vh;
+  left: 45vw;
   height: 800px;
   object-fit: contain;
   z-index: -101;
@@ -336,6 +377,7 @@ html{
 
 .ingrediente{
   width: 100%;
+  margin-top: -200px;
 }
 
 .recomandare{
@@ -396,16 +438,50 @@ html{
   margin-top: 100px;
 }
 
-.product{
-  display: flex;
-  flex-direction: column;
-  margin-right: 30px;
-  text-align: start;
+.products img{
+  height: 350px;
 }
 
-.product p{
+.product{
+  display: flex;
+  flex-direction: row;
+  margin-right: 30px;
+  text-align: start;
+  align-items: center;
+}
+
+.descriere_produse{
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+  width: 300px;
+  
+}
+
+.descriere_produse_mobile{
+  display: flex;
+  flex-direction: column;
+  
+  width: 250px;
+  
+}
+
+.product_title{
   margin-top: 15px;
   font-weight: bold;
+  font-size: 20px;
+}
+
+.desc{
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.desc_mobile{
+  margin-top: 15px;
+  font-size: 13px !important;
+  font-weight: 900;
 }
 
 
@@ -429,6 +505,10 @@ html{
 .price p{
   font-size: 28px;
   margin-top: 15px;
+}
+
+.produse_poza{
+  width: 100%;
 }
 
 .bold{
@@ -606,6 +686,7 @@ html{
   flex-direction: column;
 
   align-items: center;
+  overflow-x: hidden;
 }
 
 .logo_mobile{
@@ -615,8 +696,9 @@ html{
 
 
 .visual_mobile{
-  margin-top: 30px;
-  height: 300px;
+  margin-top: -20px;
+  width: 130vw;
+  
   z-index: -101;
   margin-bottom: 30px;
 }
@@ -644,7 +726,7 @@ html{
 .ingrediente_mobile{
   width: 100%;
   height: 100%;
-  margin-top: -50px;
+  margin-top: -80px;
 }
 
 .recomandare_titlu_mobil{
@@ -744,7 +826,7 @@ html{
 .produse{
   width: 100vw;
   z-index: -150;
-  margin-top: -100px;
+  margin-top: 50px;
 }
 
 .white_text_mobile{
@@ -770,20 +852,21 @@ html{
 
 .products_mobile_row{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding-left: 50px;
   padding-right: 50px;
   justify-content: space-around;
+  align-items: center;
 }
 
 .products_mobile_row p{
-  font-size: 11px;
+  font-size: 17px;
   margin-top: 10px;
 
 }
 
 .product_image_mobile{
-  height: 150px;
+  height: 290px;
 }
 
 .footer_mobile{
@@ -802,6 +885,7 @@ html{
 
 .footer_mobile .icon{
   height: 18px;
+  margin-right: 10px;
 }
 
 .footer_div{
@@ -810,5 +894,18 @@ html{
   font-size: 10px;
   font-weight: 400;
   margin-left: 50px;
+}
+
+.second_element_mobile p{
+  font-size: 10px;
+  margin-top: 10px;
+}
+
+.second_element_mobile{
+  display:flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: white;
+    margin-top: 25px;
 }
 </style>

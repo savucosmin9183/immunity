@@ -98,6 +98,7 @@
         </div>
       </div>
     </div>
+    <p class="close_modal" @click="hide_modal">X</p>
   </div>
   <div v-else class="modal_wrapper_mobile">
     <p class="taxa_livrare">*taxa de livrare: 20lei</p>
@@ -171,6 +172,7 @@
             CUMPARA ACUM
           </button>
         </div>
+      <p class="close_modal" @click="hide_modal">X</p>
   </div>
 </template>
 
@@ -200,6 +202,9 @@ export default {
       if (this.cantitate > 1) {
         this.cantitate--;
       }
+    },
+    hide_modal(){
+      this.$modal.hide('order_modal');
     },
     plata_switch(value) {
       if (this.plata == "numerar" && value == "card") {
@@ -662,6 +667,15 @@ input[type="number"] {
 .title_mobile{
   font-size: 14px;
   font-weight: 900;
+}
+
+.close_modal{
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  font-weight: 900;
+  font-size: 25px;
+  cursor: pointer;
 }
 
 </style>
