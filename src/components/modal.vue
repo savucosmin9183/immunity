@@ -86,6 +86,7 @@
               <input type="text" placeholder="etaj" class="input" v-model="etaj"/>
               <input type="text" placeholder="apartament" class="input" v-model="apartament"/>
             </div>
+            <input type="number" placeholder="Nr. de telefon" class="input_nr" v-model="nrtel"/>
             <textarea
               placeholder="detalii aditionale"
               class="area_text"
@@ -162,6 +163,7 @@
               <input type="text" placeholder="etaj" class="input_mobile" v-model="etaj"/>
               <input type="text" placeholder="apartament" class="input_mobile" v-model="apartament"/>
             </div>
+             <input type="number" placeholder="Nr. de telefon" class="input_mobile_nr" v-model="nrtel"/>
             <textarea
               placeholder="detalii aditionale"
               class="area_text_mobile"
@@ -191,7 +193,8 @@ export default {
       apartament: "",
       scara: "",
       etaj: "",
-      detalii: ""
+      detalii: "",
+      nrtel: ""
     };
   },
   methods: {
@@ -259,7 +262,8 @@ export default {
         scara: this.scara,
         apartament: this.apartament,
         etaj: this.etaj,
-        detalii: this.detalii
+        detalii: this.detalii,
+        nrtel: this.nrtel
       };
       var newthis = this;
       emailjs.send("service_fjyef0t", "template_wk0vumu", templateParams).then(
@@ -480,6 +484,16 @@ input[type="number"] {
   outline: none;
 }
 
+.input_nr {
+  width: 150px;
+  height: 30px;
+  padding-left: 10px;
+  margin-right: 15px;
+  font-size: 16px;
+  outline: none;
+  margin-top: 15px;
+}
+
 .area_text {
   width: 332px;
   height: 100px;
@@ -612,7 +626,7 @@ input[type="number"] {
     width: 250px;
     padding-left: 15px;
     padding-right: 15px;
-    height: 50px;
+    height: 40px;
     background-color: #ffdf91;
     display: flex;
     justify-content: center;
@@ -639,9 +653,19 @@ input[type="number"] {
   margin-left: 10px;
 }
 
+.input_mobile_nr {
+  width: 238px;
+  height: 25px;
+  padding-left: 10px;
+  font-size: 16px;
+  outline: none;
+  margin-top: 15px;
+  
+}
+
 .area_text_mobile {
   width: 240px;
-  height: 50px;
+  height: 40px;
   padding-left: 10px;
   padding-top: 10px;
   margin-top: 15px;
@@ -650,7 +674,7 @@ input[type="number"] {
 
 .taxa_livrare{
   position: absolute;
-  bottom: 20px;
+  bottom:0;
   left: 20px;
   font-size: 14px;
 }
