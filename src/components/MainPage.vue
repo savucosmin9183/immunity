@@ -250,7 +250,7 @@ export default {
     show_modal(){
       
       this.$modal.show('order_modal');
-    },
+    }
     
   },
   

@@ -16,8 +16,9 @@ import emailjs from "emailjs-com";
 export default {
   name: 'Success',
   mounted(){
+      var tel = localStorage.getItem('nrtel');
       var templateParams = {
-
+        nrtel: tel
       };
 
       emailjs.send("service_fjyef0t", "template_xr5r809", templateParams).then(

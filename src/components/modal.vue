@@ -93,6 +93,10 @@
               v-model="detalii"
             ></textarea>
           </div>
+         <div v-else class="adresa_livrare">
+           <p class="title">DETALII SUPLIMENTARE</p>
+           <input type="number" placeholder="Nr. de telefon" class="input_nr" v-model="nrtel"/>
+         </div>
           <button class="command_button_modal" @click="cumpara">
             CUMPARA ACUM
           </button>
@@ -170,6 +174,10 @@
               v-model="detalii"
             ></textarea>
           </div>
+          <div class="adresa_livrare_mobil" v-else>
+            <p class="title_mobile">DETALII SUPLIMENTARE</p>
+            <input type="number" placeholder="Nr. de telefon" class="input_mobile_nr" v-model="nrtel"/>
+          </div>
           <button class="command_button_modal_mobile" @click="cumpara">
             CUMPARA ACUM
           </button>
@@ -217,6 +225,7 @@ export default {
       }
     },
     checkout() {
+      localStorage.setItem('nrtel', this.nrtel);
       const stripe = window.Stripe(
         "pk_live_51HtsBwDXwGLIBBjpKUhddM5rAq7DjJrWq2BoIhRJtBwBBkilPcGBil6Qt3ADTdlT06LSaP66ThMIzZXXyINfmRRL00fXTzwv7M"
       );
@@ -228,8 +237,8 @@ export default {
               quantity: this.cantitate,
             },
             {
-                price: "price_1HuJOeDXwGLIBBjpFGVlYDhE",
-                quantity: 1,
+              price:"price_1HuJOeDXwGLIBBjpFGVlYDhE",
+              quantity: 1
             }
           ],
           mode: "payment",
@@ -277,6 +286,9 @@ export default {
       );
       
     },
+  },
+  mounted() {
+     localStorage.setItem('nrtel', '0721123123');
   },
 };
 </script>
