@@ -86,8 +86,13 @@
          <div class="adresa_livrare" v-else>
             <p class="title">ADRESA DE LIVRARE</p>
             <div class="inputs_line">
+              <input type="text" placeholder="tara" class="input" v-model="tara" />
               <input type="text" placeholder="oras" class="input" v-model="oras" />
+            </div>
+            <div class="inputs_line">
               <input type="text" placeholder="strada" class="input" v-model="strada"/>
+              <input type="text" placeholder="numar" class="input" v-model="numar" />
+              
             </div>
             <div class="inputs_line">
               <input type="text" placeholder="bloc" class="input" v-model="bloc"/>
@@ -102,6 +107,7 @@
               class="area_text"
               v-model="detalii"
             ></textarea>
+            <p class="error">{{error_adresa}}</p>
             <button class="command_button_modal" @click="cumpara">
             CUMPARA ACUM
           </button>
@@ -174,8 +180,14 @@
           <div class="adresa_livrare_mobil" v-if="continua == true">
             <p class="title_mobile">ADRESA DE LIVRARE</p>
             <div class="inputs_line">
+              <input type="text" placeholder="tara" class="input_mobile" v-model="tara" />
               <input type="text" placeholder="oras" class="input_mobile" v-model="oras" />
+              
+            </div>
+            <div class="inputs_line">
+              
               <input type="text" placeholder="strada" class="input_mobile" v-model="strada" />
+              <input type="text" placeholder="numar" class="input_mobile" v-model="numar" />
             </div>
             <div class="inputs_line">
               <input type="text" placeholder="bloc" class="input_mobile" v-model="bloc"/>
@@ -191,6 +203,7 @@
               class="area_text_mobile"
               v-model="detalii"
             ></textarea>
+            <p class="error">{{error_adresa}}</p>
             <button class="command_button_modal_mobile" @click="cumpara">
             CUMPARA ACUM
             </button>
@@ -223,7 +236,10 @@ export default {
       prenume: "",
       mail: "",
       continua: false,
-      error: ""
+      error: "",
+      tara: "",
+      error_adresa: "",
+      numar: ""
     };
   },
   methods: {
@@ -253,8 +269,11 @@ export default {
     },
     checkout() {
       localStorage.setItem('nrtel', this.nrtel);
+      localStorage.setItem('tara', this.tara);
+      localStorage.setItem('cantitate', this.cantitate);
       localStorage.setItem('oras', this.oras);
       localStorage.setItem('strada', this.strada);
+      localStorage.setItem('numar', this.numar);
       localStorage.setItem('bloc', this.bloc);
       localStorage.setItem('apartament', this.apartament);
       localStorage.setItem('scara', this.scara);
@@ -291,15 +310,22 @@ export default {
         });
     },
     cumpara() {
-      console.log(this.plata)
-      if (this.plata == "card") {
-        this.checkout();
-      } else {
-        this.send_cash_mail();
+      if(this.tara == "" || this.oras == "" || this.strada == "" || this.numar == "")
+        this.error_adresa = "Adresa este obligatorie!"
+      else{
+        if (this.plata == "card") {
+          this.checkout();
+        } else {
+          this.send_cash_mail();
+        }
       }
+      
     },
     send_cash_mail() {
       var templateParams = {
+        tara: this.tara,
+        numar: this.numar,
+        cantitate: this.cantitate,
         oras: this.oras,
         strada: this.strada,
         bloc: this.bloc,
@@ -684,7 +710,7 @@ input[type="number"] {
     border: none;
     cursor: pointer;
     font-size: 18px;
-    margin-top: 25px;
+    margin-top: 10px;
 }
 
 .orizontal_line_two_mobile {
@@ -741,6 +767,10 @@ input[type="number"] {
 .title_mobile{
   font-size: 14px;
   font-weight: 900;
+}
+
+.tara{
+  width: 240px;
 }
 
 .close_modal{

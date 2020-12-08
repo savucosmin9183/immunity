@@ -665,7 +665,7 @@ html{
 
 
 .vm--modal{
-  height: 750px !important;
+  height: 800px !important;
   width: 1200px !important;
   top: calc(50% - 350px) !important;
   left: calc(50% - 600px) !important;
@@ -673,9 +673,9 @@ html{
 
 @media (max-width: 900px) {
   .vm--modal{
-  height: 90vh !important;
+  height: 95vh !important;
   width: 90vw !important;
-  top: 5vh !important;
+  top: 2vh !important;
   left: 5vw !important;
   }
 }
