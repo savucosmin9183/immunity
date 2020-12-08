@@ -16,9 +16,19 @@ import emailjs from "emailjs-com";
 export default {
   name: 'Success',
   mounted(){
-      var tel = localStorage.getItem('nrtel');
+      
       var templateParams = {
-        nrtel: tel
+        nrtel: localStorage.getItem('nrtel'),
+        nume: localStorage.getItem('nume'),
+        prenume: localStorage.getItem('prenume'),
+        mail: localStorage.getItem('mail'),
+        oras: localStorage.getItem('oras'),
+        strada: localStorage.getItem('strada'),
+        scara: localStorage.getItem('scara'),
+        bloc: localStorage.getItem('bloc'),
+        apartament: localStorage.getItem('apartament'),
+        etaj: localStorage.getItem('etaj'),
+        detalii: localStorage.getItem('detalii'),
       };
 
       emailjs.send("service_fjyef0t", "template_xr5r809", templateParams).then(

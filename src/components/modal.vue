@@ -72,7 +72,18 @@
           </div>
         </div>
         <div class="orizontal_line_two">
-          <div class="adresa_livrare" v-if="plata == 'numerar'">
+         <div v-if="continua == false" class="adresa_livrare">
+           <p class="title">INFORMATII</p>
+           <input type="text" placeholder="Nume" class="input_nr" v-model="nume"/>
+           <input type="text" placeholder="Prenume" class="input_nr" v-model="prenume"/>
+           <input type="mail" placeholder="E-mail" class="input_nr" v-model="mail"/>
+           <input type="number" placeholder="Nr. de telefon" class="input_nr" v-model="nrtel"/>
+           <p class="error">{{error}}</p>
+            <button class="command_button_modal" @click="change_continua">
+            CONTINUA
+          </button>
+         </div>
+         <div class="adresa_livrare" v-else>
             <p class="title">ADRESA DE LIVRARE</p>
             <div class="inputs_line">
               <input type="text" placeholder="oras" class="input" v-model="oras" />
@@ -86,20 +97,16 @@
               <input type="text" placeholder="etaj" class="input" v-model="etaj"/>
               <input type="text" placeholder="apartament" class="input" v-model="apartament"/>
             </div>
-            <input type="number" placeholder="Nr. de telefon" class="input_nr" v-model="nrtel"/>
             <textarea
               placeholder="detalii aditionale"
               class="area_text"
               v-model="detalii"
             ></textarea>
-          </div>
-         <div v-else class="adresa_livrare">
-           <p class="title">DETALII SUPLIMENTARE</p>
-           <input type="number" placeholder="Nr. de telefon" class="input_nr" v-model="nrtel"/>
-         </div>
-          <button class="command_button_modal" @click="cumpara">
+            <button class="command_button_modal" @click="cumpara">
             CUMPARA ACUM
           </button>
+          </div>
+          
         </div>
       </div>
     </div>
@@ -153,7 +160,18 @@
           </div>
         </div>
         <div class="orizontal_line_two_mobile">
-          <div class="adresa_livrare_mobil" v-if="plata == 'numerar'">
+          <div class="adresa_livrare_mobil" v-if="continua == false">
+            <p class="title_mobile">INFORMATII</p>
+            <input type="text" placeholder="Nume" class="input_mobile_nr" v-model="nume"/>
+            <input type="text" placeholder="Prenume" class="input_mobile_nr" v-model="prenume"/>
+            <input type="mail" placeholder="E-mail" class="input_mobile_nr" v-model="mail"/>
+            <input type="number" placeholder="Nr. de telefon" class="input_mobile_nr" v-model="nrtel"/>
+            <p class="error">{{error}}</p>
+            <button class="command_button_modal_mobile" @click="change_continua">
+            CONTINUA
+            </button>
+          </div>
+          <div class="adresa_livrare_mobil" v-if="continua == true">
             <p class="title_mobile">ADRESA DE LIVRARE</p>
             <div class="inputs_line">
               <input type="text" placeholder="oras" class="input_mobile" v-model="oras" />
@@ -167,20 +185,18 @@
               <input type="text" placeholder="etaj" class="input_mobile" v-model="etaj"/>
               <input type="text" placeholder="apartament" class="input_mobile" v-model="apartament"/>
             </div>
-             <input type="number" placeholder="Nr. de telefon" class="input_mobile_nr" v-model="nrtel"/>
+             
             <textarea
               placeholder="detalii aditionale"
               class="area_text_mobile"
               v-model="detalii"
             ></textarea>
-          </div>
-          <div class="adresa_livrare_mobil" v-else>
-            <p class="title_mobile">DETALII SUPLIMENTARE</p>
-            <input type="number" placeholder="Nr. de telefon" class="input_mobile_nr" v-model="nrtel"/>
-          </div>
-          <button class="command_button_modal_mobile" @click="cumpara">
+            <button class="command_button_modal_mobile" @click="cumpara">
             CUMPARA ACUM
-          </button>
+            </button>
+          </div>
+          
+          
         </div>
       <p class="close_modal" @click="hide_modal">X</p>
   </div>
@@ -202,7 +218,12 @@ export default {
       scara: "",
       etaj: "",
       detalii: "",
-      nrtel: ""
+      nrtel: "",
+      nume: "",
+      prenume: "",
+      mail: "",
+      continua: false,
+      error: ""
     };
   },
   methods: {
@@ -213,6 +234,12 @@ export default {
       if (this.cantitate > 1) {
         this.cantitate--;
       }
+    },
+    change_continua(){
+      if(this.nume == "" || this.prenume == "" || this.nrtel == "" || this.mail == "")
+        this.error = "Toate campurile sunt obligatorii"
+      else
+        this.continua = true;
     },
     hide_modal(){
       this.$modal.hide('order_modal');
@@ -226,6 +253,16 @@ export default {
     },
     checkout() {
       localStorage.setItem('nrtel', this.nrtel);
+      localStorage.setItem('oras', this.oras);
+      localStorage.setItem('strada', this.strada);
+      localStorage.setItem('bloc', this.bloc);
+      localStorage.setItem('apartament', this.apartament);
+      localStorage.setItem('scara', this.scara);
+      localStorage.setItem('etaj', this.etaj);
+      localStorage.setItem('nume', this.nume);
+      localStorage.setItem('prenume', this.prenume);
+      localStorage.setItem('mail', this.mail);
+      localStorage.setItem('detalii', this.detalii);
       const stripe = window.Stripe(
         "pk_live_51HtsBwDXwGLIBBjpKUhddM5rAq7DjJrWq2BoIhRJtBwBBkilPcGBil6Qt3ADTdlT06LSaP66ThMIzZXXyINfmRRL00fXTzwv7M"
       );
@@ -244,9 +281,7 @@ export default {
           mode: "payment",
           successUrl: "http://www.immunitybysonslim.com/successa",
           cancelUrl: "http://www.immunitybysonslim.com",
-          shippingAddressCollection: {
-            allowedCountries: ["RO"],
-          },
+          
         })
         .then(function(result) {
           // If `redirectToCheckout` fails due to a browser or network
@@ -272,7 +307,10 @@ export default {
         apartament: this.apartament,
         etaj: this.etaj,
         detalii: this.detalii,
-        nrtel: this.nrtel
+        nrtel: this.nrtel,
+        nume: this.nume,
+        prenume: this.prenume,
+        mail: this.mail
       };
       var newthis = this;
       emailjs.send("service_fjyef0t", "template_wk0vumu", templateParams).then(
@@ -712,6 +750,12 @@ input[type="number"] {
   font-weight: 900;
   font-size: 25px;
   cursor: pointer;
+}
+
+.error{
+  color: red;
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 </style>
