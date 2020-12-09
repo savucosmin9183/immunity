@@ -80,7 +80,7 @@
            <input type="mail" placeholder="E-mail" class="input_nr" v-model="mail"/>
            <input type="number" placeholder="Nr. de telefon" class="input_nr" v-model="nrtel"/>
            <br><br>
-           <input type="checkbox" class="checkbox" name="check" v-model="strainatate">
+           <input type="checkbox" class="checkbox" name="check" v-model="strainatate" @click="strainatate_click">
            <label for="check">Comand din strainatate</label><br>
            <p class="error">{{error}}</p>
             <button class="command_button_modal" @click="change_continua">
@@ -90,7 +90,8 @@
          <div class="adresa_livrare" v-else>
             <p class="title">ADRESA DE LIVRARE</p>
             <div class="inputs_line">
-              <input type="text" placeholder="tara" class="input" v-model="tara" />
+              <input type="text" placeholder="tara" class="input" v-model="tara" v-if="strainatate" />
+              <input type="text" placeholder="tara" class="input" v-model="tara" readonly v-if="!strainatate"/>
               <input type="text" placeholder="oras" class="input" v-model="oras" />
             </div>
             <div class="inputs_line">
@@ -112,7 +113,7 @@
               v-model="detalii"
             ></textarea>
              <br><br>
-            <input type="checkbox" class="checkbox" name="check" v-model="strainatate">
+            <input type="checkbox" class="checkbox" name="check" v-model="strainatate" @click="strainatate_click">
            <label for="check">Comand din strainatate</label><br>
             <p class="error">{{error_adresa}}</p>
             <button class="command_button_modal" @click="cumpara">
@@ -182,7 +183,7 @@
             <input type="number" placeholder="Nr. de telefon" class="input_mobile_nr" v-model="nrtel"/>
             <br>
             <div class="checkboxdiv">
-              <input type="checkbox" class="checkbox" name="check" v-model="strainatate">
+              <input type="checkbox" class="checkbox" name="check" v-model="strainatate" @click="strainatate_click">
               <label for="check">Comand din strainatate</label><br>
             </div>
             
@@ -194,7 +195,8 @@
           <div class="adresa_livrare_mobil" v-if="continua == true">
             <p class="title_mobile">ADRESA DE LIVRARE</p>
             <div class="inputs_line">
-              <input type="text" placeholder="tara" class="input_mobile" v-model="tara" />
+              <input type="text" placeholder="tara" class="input_mobile" v-model="tara" v-if="strainatate"/>
+              <input type="text" placeholder="tara" class="input_mobile" readonly v-model="tara" v-if="!strainatate"/>
               <input type="text" placeholder="oras" class="input_mobile" v-model="oras" />
               
             </div>
@@ -219,7 +221,7 @@
             ></textarea>
             <br>
             <div class="checkboxdiv">
-              <input type="checkbox" class="checkbox" name="check" v-model="strainatate">
+              <input type="checkbox" class="checkbox" name="check" v-model="strainatate" @click="strainatate_click">
               <label for="check">Comand din strainatate</label><br>
             </div>
             <p class="error">{{error_adresa}}</p>
@@ -256,7 +258,7 @@ export default {
       mail: "",
       continua: false,
       error: "",
-      tara: "",
+      tara: "Romania",
       error_adresa: "",
       numar: "",
       strainatate: false
@@ -276,6 +278,16 @@ export default {
         this.error = "Toate campurile sunt obligatorii"
       else
         this.continua = true;
+    },
+    strainatate_click(){
+      if(this.strainatate){
+        
+        this.tara = "Romania"
+      }
+      else{
+        this.tara = ""
+      }
+      
     },
     hide_modal(){
       this.$modal.hide('order_modal');
