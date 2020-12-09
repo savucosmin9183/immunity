@@ -1,6 +1,7 @@
 <template>
   <div class="modal_wrapper" v-if="$resize && $mq.above(992)">
-    <p class="taxa_livrare">*taxa de livrare: 20lei</p>
+    <p class="taxa_livrare" v-if="!strainatate">*taxa de livrare: 20lei</p>
+    <p class="taxa_livrare" v-else>*taxa de livrare: 100lei</p>
     <div class="first_line_modal">
       <img src="@/assets/cutie.png" alt="cutie" class="cutie" />
       <p class="first_line_title">CONTINUT:</p>
@@ -59,7 +60,7 @@
               </div>
               <p>CARD</p>
             </div>
-            <div>
+            <div v-if="!strainatate">
               <div
                 class="alegere"
                 :class="plata == 'numerar' ? 'active' : ''"
@@ -78,6 +79,9 @@
            <input type="text" placeholder="Prenume" class="input_nr" v-model="prenume"/>
            <input type="mail" placeholder="E-mail" class="input_nr" v-model="mail"/>
            <input type="number" placeholder="Nr. de telefon" class="input_nr" v-model="nrtel"/>
+           <br><br>
+           <input type="checkbox" class="checkbox" name="check" v-model="strainatate">
+           <label for="check">Comand din strainatate</label><br>
            <p class="error">{{error}}</p>
             <button class="command_button_modal" @click="change_continua">
             CONTINUA
@@ -107,6 +111,9 @@
               class="area_text"
               v-model="detalii"
             ></textarea>
+             <br><br>
+            <input type="checkbox" class="checkbox" name="check" v-model="strainatate">
+           <label for="check">Comand din strainatate</label><br>
             <p class="error">{{error_adresa}}</p>
             <button class="command_button_modal" @click="cumpara">
             CUMPARA ACUM
@@ -119,7 +126,8 @@
     <p class="close_modal" @click="hide_modal">X</p>
   </div>
   <div v-else class="modal_wrapper_mobile">
-    <p class="taxa_livrare">*taxa de livrare: 20lei</p>
+    <p class="taxa_livrare" v-if="!strainatate">*taxa de livrare: 20lei</p>
+    <p class="taxa_livrare" v-else>*taxa de livrare: 100lei</p>
     <div class="modal_title_mobile">
       <img src="@/assets/cutie.png" alt="cutie" class="cutie_mobile" />
       <div class="product_details_mobile">
@@ -152,7 +160,7 @@
                 </div>
                 <p class="card_mobile">CARD</p>
               </div>
-              <div>
+              <div v-if="!strainatate">
                 <div
                   class="alegere_mobil"
                   :class="plata == 'numerar' ? 'active' : ''"
@@ -172,6 +180,12 @@
             <input type="text" placeholder="Prenume" class="input_mobile_nr" v-model="prenume"/>
             <input type="mail" placeholder="E-mail" class="input_mobile_nr" v-model="mail"/>
             <input type="number" placeholder="Nr. de telefon" class="input_mobile_nr" v-model="nrtel"/>
+            <br>
+            <div class="checkboxdiv">
+              <input type="checkbox" class="checkbox" name="check" v-model="strainatate">
+              <label for="check">Comand din strainatate</label><br>
+            </div>
+            
             <p class="error">{{error}}</p>
             <button class="command_button_modal_mobile" @click="change_continua">
             CONTINUA
@@ -203,6 +217,11 @@
               class="area_text_mobile"
               v-model="detalii"
             ></textarea>
+            <br>
+            <div class="checkboxdiv">
+              <input type="checkbox" class="checkbox" name="check" v-model="strainatate">
+              <label for="check">Comand din strainatate</label><br>
+            </div>
             <p class="error">{{error_adresa}}</p>
             <button class="command_button_modal_mobile" @click="cumpara">
             CUMPARA ACUM
@@ -239,7 +258,8 @@ export default {
       error: "",
       tara: "",
       error_adresa: "",
-      numar: ""
+      numar: "",
+      strainatate: false
     };
   },
   methods: {
@@ -293,7 +313,7 @@ export default {
               quantity: this.cantitate,
             },
             {
-              price:"price_1HuJOeDXwGLIBBjpFGVlYDhE",
+              price: this.strainatate ? "price_1HwV70DXwGLIBBjp5TAcjJah" : "price_1HuJOeDXwGLIBBjpFGVlYDhE",
               quantity: 1
             }
           ],
@@ -786,6 +806,15 @@ input[type="number"] {
   color: red;
   font-size: 12px;
   margin-top: 10px;
+}
+
+.checkbox{
+  margin-right: 5px;
+}
+
+.checkboxdiv{
+  display: flex;
+  flex-direction: row;
 }
 
 </style>
