@@ -207,7 +207,7 @@ Acest concept respectă in continuare principiile mele, respectiv totul natural 
         <div class="footer_mobile">
           <div class="footer_div">
             <img src="@/assets/logo.png" alt="logo" class="logo_mobile">
-             <p>Se fac livrări si in țările UE , însă tariful transportului este 20€ , iar ca opțiune de plata este doar ramburs.</p>
+             <p>Se fac livrări si in țările UE, iar ca opțiune de plata este doar cu cardul.</p>
           </div>
           <div class="second_element_mobile">
             <p>Tel: 0726 957 802</p>
