@@ -17,7 +17,7 @@
       
 
       <div class="recomandare" id="sonia">
-        <img src="@/assets/sonia.png" alt="sonia">
+        <img src="@/assets/sonia.png" alt="sonia" class="sonia_pic">
         <div class="second_column">
           <p>RECOMANDAT DE SONSLIM</p>
           <div class="paragraphs">
@@ -266,20 +266,20 @@ a{
 
 .first_page{
   
-  padding-left: 250px;
-  padding-right: 250px;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
 .second_page{
   
-  padding-left: 250px;
-  padding-right: 250px;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
 .third_page{
   
-  padding-left: 250px;
-  padding-right: 250px;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
 .socials_mobile{
@@ -318,7 +318,7 @@ html{
 
 .main_title{
   color: white;
-  font-size: 70px;
+  font-size: 4vw;
   margin-right: 100px;
 }
 
@@ -408,7 +408,7 @@ html{
 }
 
 .paragraph:first-of-type{
-  margin-right: 100px;
+  margin-right: 30px;
 
 }
 
@@ -908,4 +908,11 @@ html{
     color: white;
     margin-top: 25px;
 }
+
+.sonia_pic{
+  max-height: 500px;
+  height: 30vw;
+}
+
+
 </style>

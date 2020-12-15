@@ -48,8 +48,8 @@ export default {
 
     padding-top: 40px;
     padding-bottom: 40px;
-    padding-left: 250px;
-    padding-right: 250px;
+    padding-left: 100px;
+    padding-right: 100px;
     display:flex;
     justify-content: space-between;
     background-color: black;
