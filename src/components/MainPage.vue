@@ -783,6 +783,14 @@ html {
   left: calc(50% - 600px) !important;
 }
 
+
+
+@media (max-width: 1800px) {
+  .vm--modal {
+    transform: scale(0.8);
+  }
+}
+
 @media (max-width: 900px) {
   .vm--modal {
     height: 95vh !important;
