@@ -73,54 +73,132 @@
           </div>
         </div>
         <div class="orizontal_line_two">
-         <div v-if="continua == false" class="adresa_livrare">
-           <p class="title">INFORMATII</p>
-           <input type="text" placeholder="Nume" class="input_nr" v-model="nume"/>
-           <input type="text" placeholder="Prenume" class="input_nr" v-model="prenume"/>
-           <input type="mail" placeholder="E-mail" class="input_nr" v-model="mail"/>
-           <input type="number" placeholder="Nr. de telefon" class="input_nr" v-model="nrtel"/>
-           <br><br>
-           <input type="checkbox" class="checkbox" name="check" v-model="strainatate" @click="strainatate_click">
-           <label for="check">Comand din strainatate</label><br>
-           <p class="error">{{error}}</p>
+          <div v-if="continua == false" class="adresa_livrare">
+            <p class="title">INFORMATII</p>
+            <input
+              type="text"
+              placeholder="Nume"
+              class="input_nr"
+              v-model="nume"
+            />
+            <input
+              type="text"
+              placeholder="Prenume"
+              class="input_nr"
+              v-model="prenume"
+            />
+            <input
+              type="mail"
+              placeholder="E-mail"
+              class="input_nr"
+              v-model="mail"
+            />
+            <input
+              type="number"
+              placeholder="Nr. de telefon"
+              class="input_nr"
+              v-model="nrtel"
+            />
+            <br /><br />
+            <input
+              type="checkbox"
+              class="checkbox"
+              name="check"
+              v-model="strainatate"
+              @click="strainatate_click"
+            />
+            <label for="check">Comand din strainatate</label><br />
+            <p class="error">{{ error }}</p>
             <button class="command_button_modal" @click="change_continua">
-            CONTINUA
-          </button>
-         </div>
-         <div class="adresa_livrare" v-else>
+              CONTINUA
+            </button>
+          </div>
+          <div class="adresa_livrare" v-else>
             <p class="title">ADRESA DE LIVRARE</p>
             <div class="inputs_line">
-              <input type="text" placeholder="tara" class="input" v-model="tara" v-if="strainatate" />
-              <input type="text" placeholder="tara" class="input" v-model="tara" readonly v-if="!strainatate"/>
-              <input type="text" placeholder="oras" class="input" v-model="oras" />
+              <input
+                type="text"
+                placeholder="tara"
+                class="input"
+                v-model="tara"
+                v-if="strainatate"
+              />
+              <input
+                type="text"
+                placeholder="tara"
+                class="input"
+                v-model="tara"
+                readonly
+                v-if="!strainatate"
+              />
+              <input
+                type="text"
+                placeholder="oras"
+                class="input"
+                v-model="oras"
+              />
             </div>
             <div class="inputs_line">
-              <input type="text" placeholder="strada" class="input" v-model="strada"/>
-              <input type="text" placeholder="numar" class="input" v-model="numar" />
-              
+              <input
+                type="text"
+                placeholder="strada"
+                class="input"
+                v-model="strada"
+              />
+              <input
+                type="text"
+                placeholder="numar"
+                class="input"
+                v-model="numar"
+              />
             </div>
             <div class="inputs_line">
-              <input type="text" placeholder="bloc" class="input" v-model="bloc"/>
-              <input type="text" placeholder="scara" class="input" v-model="scara"/>
+              <input
+                type="text"
+                placeholder="bloc"
+                class="input"
+                v-model="bloc"
+              />
+              <input
+                type="text"
+                placeholder="scara"
+                class="input"
+                v-model="scara"
+              />
             </div>
             <div class="inputs_line">
-              <input type="text" placeholder="etaj" class="input" v-model="etaj"/>
-              <input type="text" placeholder="apartament" class="input" v-model="apartament"/>
+              <input
+                type="text"
+                placeholder="etaj"
+                class="input"
+                v-model="etaj"
+              />
+              <input
+                type="text"
+                placeholder="apartament"
+                class="input"
+                v-model="apartament"
+              />
             </div>
             <textarea
               placeholder="detalii aditionale"
               class="area_text"
               v-model="detalii"
             ></textarea>
-             <br><br>
-            <input type="checkbox" class="checkbox" name="check" v-model="strainatate" @click="strainatate_click">
-           <label for="check">Comand din strainatate</label><br>
-            <p class="error">{{error_adresa}}</p>
+            <br /><br />
+            <input
+              type="checkbox"
+              class="checkbox"
+              name="check"
+              v-model="strainatate"
+              @click="strainatate_click"
+            />
+            <label for="check">Comand din strainatate</label><br />
+            <p class="error">{{ error_adresa }}</p>
             <button class="command_button_modal" @click="cumpara">
-            CUMPARA ACUM
-          </button>
+              CUMPARA ACUM
+            </button>
           </div>
-          
         </div>
       </div>
     </div>
@@ -132,107 +210,185 @@
     <div class="modal_title_mobile">
       <img src="@/assets/cutie.png" alt="cutie" class="cutie_mobile" />
       <div class="product_details_mobile">
-        <p class="modal_title">IMMUNITY <br>BY SON-SLIM</p>
+        <p class="modal_title">IMMUNITY <br />BY SON-SLIM</p>
         <p class="pret"><b>399</b> RON*</p>
       </div>
     </div>
-   
-    <div class="orizontal_line_mobile">
-          <div class="cantitate_mobile">
-            <p>CANTITATE</p>
-            <input type="number" :value="cantitate" class="cantitate_patrat_mobile" />
-            <div class="plus">
-              <p @click="decrement" class="plus_mobile">-</p>
-              <p @click="increment" class="plus_mobile">+</p>
-            </div>
-          </div>
-          <div class="metoda_mobile_div">
 
-            
-            <p class="metoda_mobile">METODA DE PLATA:</p>
-            <div class="metoda_div_mobile">
-              <div>
-                <div
-                  class="alegere_mobil"
-                  :class="plata == 'card' ? 'active' : ''"
-                  @click="plata_switch('card')"
-                >
-                  <img src="@/assets/card.png" alt="" class="card_icon_mobil" />
-                </div>
-                <p class="card_mobile">CARD</p>
-              </div>
-              <div v-if="!strainatate">
-                <div
-                  class="alegere_mobil"
-                  :class="plata == 'numerar' ? 'active' : ''"
-                  @click="plata_switch('numerar')"
-                >
-                  <img src="@/assets/money.png" alt="" class="card_icon_mobil" />
-                </div>
-                <p class="card_mobile">CASH</p>
-              </div>
+    <div class="orizontal_line_mobile">
+      <div class="cantitate_mobile">
+        <p>CANTITATE</p>
+        <input
+          type="number"
+          :value="cantitate"
+          class="cantitate_patrat_mobile"
+        />
+        <div class="plus">
+          <p @click="decrement" class="plus_mobile">-</p>
+          <p @click="increment" class="plus_mobile">+</p>
+        </div>
+      </div>
+      <div class="metoda_mobile_div">
+        <p class="metoda_mobile">METODA DE PLATA:</p>
+        <div class="metoda_div_mobile">
+          <div>
+            <div
+              class="alegere_mobil"
+              :class="plata == 'card' ? 'active' : ''"
+              @click="plata_switch('card')"
+            >
+              <img src="@/assets/card.png" alt="" class="card_icon_mobil" />
             </div>
+            <p class="card_mobile">CARD</p>
+          </div>
+          <div v-if="!strainatate">
+            <div
+              class="alegere_mobil"
+              :class="plata == 'numerar' ? 'active' : ''"
+              @click="plata_switch('numerar')"
+            >
+              <img src="@/assets/money.png" alt="" class="card_icon_mobil" />
+            </div>
+            <p class="card_mobile">CASH</p>
           </div>
         </div>
-        <div class="orizontal_line_two_mobile">
-          <div class="adresa_livrare_mobil" v-if="continua == false">
-            <p class="title_mobile">INFORMATII</p>
-            <input type="text" placeholder="Nume" class="input_mobile_nr" v-model="nume"/>
-            <input type="text" placeholder="Prenume" class="input_mobile_nr" v-model="prenume"/>
-            <input type="mail" placeholder="E-mail" class="input_mobile_nr" v-model="mail"/>
-            <input type="number" placeholder="Nr. de telefon" class="input_mobile_nr" v-model="nrtel"/>
-            <br>
-            <div class="checkboxdiv">
-              <input type="checkbox" class="checkbox" name="check" v-model="strainatate" @click="strainatate_click">
-              <label for="check">Comand din strainatate</label><br>
-            </div>
-            
-            <p class="error">{{error}}</p>
-            <button class="command_button_modal_mobile" @click="change_continua">
-            CONTINUA
-            </button>
-          </div>
-          <div class="adresa_livrare_mobil" v-if="continua == true">
-            <p class="title_mobile">ADRESA DE LIVRARE</p>
-            <div class="inputs_line">
-              <input type="text" placeholder="tara" class="input_mobile" v-model="tara" v-if="strainatate"/>
-              <input type="text" placeholder="tara" class="input_mobile" readonly v-model="tara" v-if="!strainatate"/>
-              <input type="text" placeholder="oras" class="input_mobile" v-model="oras" />
-              
-            </div>
-            <div class="inputs_line">
-              
-              <input type="text" placeholder="strada" class="input_mobile" v-model="strada" />
-              <input type="text" placeholder="numar" class="input_mobile" v-model="numar" />
-            </div>
-            <div class="inputs_line">
-              <input type="text" placeholder="bloc" class="input_mobile" v-model="bloc"/>
-              <input type="text" placeholder="scara" class="input_mobile" v-model="scara"/>
-            </div>
-            <div class="inputs_line">
-              <input type="text" placeholder="etaj" class="input_mobile" v-model="etaj"/>
-              <input type="text" placeholder="apartament" class="input_mobile" v-model="apartament"/>
-            </div>
-             
-            <textarea
-              placeholder="detalii aditionale"
-              class="area_text_mobile"
-              v-model="detalii"
-            ></textarea>
-            <br>
-            <div class="checkboxdiv">
-              <input type="checkbox" class="checkbox" name="check" v-model="strainatate" @click="strainatate_click">
-              <label for="check">Comand din strainatate</label><br>
-            </div>
-            <p class="error">{{error_adresa}}</p>
-            <button class="command_button_modal_mobile" @click="cumpara">
-            CUMPARA ACUM
-            </button>
-          </div>
-          
-          
+      </div>
+    </div>
+    <div class="orizontal_line_two_mobile">
+      <div class="adresa_livrare_mobil" v-if="continua == false">
+        <p class="title_mobile">INFORMATII</p>
+        <input
+          type="text"
+          placeholder="Nume"
+          class="input_mobile_nr"
+          v-model="nume"
+        />
+        <input
+          type="text"
+          placeholder="Prenume"
+          class="input_mobile_nr"
+          v-model="prenume"
+        />
+        <input
+          type="mail"
+          placeholder="E-mail"
+          class="input_mobile_nr"
+          v-model="mail"
+        />
+        <input
+          type="number"
+          placeholder="Nr. de telefon"
+          class="input_mobile_nr"
+          v-model="nrtel"
+        />
+        <br />
+        <div class="checkboxdiv">
+          <input
+            type="checkbox"
+            class="checkbox"
+            name="check"
+            v-model="strainatate"
+            @click="strainatate_click"
+          />
+          <label for="check">Comand din strainatate</label><br />
         </div>
-      <p class="close_modal" @click="hide_modal">X</p>
+
+        <p class="error">{{ error }}</p>
+        <button class="command_button_modal_mobile" @click="change_continua">
+          CONTINUA
+        </button>
+      </div>
+      <div class="adresa_livrare_mobil" v-if="continua == true">
+        <p class="title_mobile">ADRESA DE LIVRARE</p>
+        <div class="inputs_line">
+          <input
+            type="text"
+            placeholder="tara"
+            class="input_mobile"
+            v-model="tara"
+            v-if="strainatate"
+          />
+          <input
+            type="text"
+            placeholder="tara"
+            class="input_mobile"
+            readonly
+            v-model="tara"
+            v-if="!strainatate"
+          />
+          <input
+            type="text"
+            placeholder="oras"
+            class="input_mobile"
+            v-model="oras"
+          />
+        </div>
+        <div class="inputs_line">
+          <input
+            type="text"
+            placeholder="strada"
+            class="input_mobile"
+            v-model="strada"
+          />
+          <input
+            type="text"
+            placeholder="numar"
+            class="input_mobile"
+            v-model="numar"
+          />
+        </div>
+        <div class="inputs_line">
+          <input
+            type="text"
+            placeholder="bloc"
+            class="input_mobile"
+            v-model="bloc"
+          />
+          <input
+            type="text"
+            placeholder="scara"
+            class="input_mobile"
+            v-model="scara"
+          />
+        </div>
+        <div class="inputs_line">
+          <input
+            type="text"
+            placeholder="etaj"
+            class="input_mobile"
+            v-model="etaj"
+          />
+          <input
+            type="text"
+            placeholder="apartament"
+            class="input_mobile"
+            v-model="apartament"
+          />
+        </div>
+
+        <textarea
+          placeholder="detalii aditionale"
+          class="area_text_mobile"
+          v-model="detalii"
+        ></textarea>
+        <br />
+        <div class="checkboxdiv">
+          <input
+            type="checkbox"
+            class="checkbox"
+            name="check"
+            v-model="strainatate"
+            @click="strainatate_click"
+          />
+          <label for="check">Comand din strainatate</label><br />
+        </div>
+        <p class="error">{{ error_adresa }}</p>
+        <button class="command_button_modal_mobile" @click="cumpara">
+          CUMPARA ACUM
+        </button>
+      </div>
+    </div>
+    <p class="close_modal" @click="hide_modal">X</p>
   </div>
 </template>
 
@@ -261,7 +417,7 @@ export default {
       tara: "Romania",
       error_adresa: "",
       numar: "",
-      strainatate: false
+      strainatate: false,
     };
   },
   methods: {
@@ -273,24 +429,25 @@ export default {
         this.cantitate--;
       }
     },
-    change_continua(){
-      if(this.nume == "" || this.prenume == "" || this.nrtel == "" || this.mail == "")
-        this.error = "Toate campurile sunt obligatorii"
-      else
-        this.continua = true;
+    change_continua() {
+      if (
+        this.nume == "" ||
+        this.prenume == "" ||
+        this.nrtel == "" ||
+        this.mail == ""
+      )
+        this.error = "Toate campurile sunt obligatorii";
+      else this.continua = true;
     },
-    strainatate_click(){
-      if(this.strainatate){
-        
-        this.tara = "Romania"
+    strainatate_click() {
+      if (this.strainatate) {
+        this.tara = "Romania";
+      } else {
+        this.tara = "";
       }
-      else{
-        this.tara = ""
-      }
-      
     },
-    hide_modal(){
-      this.$modal.hide('order_modal');
+    hide_modal() {
+      this.$modal.hide("order_modal");
     },
     plata_switch(value) {
       if (this.plata == "numerar" && value == "card") {
@@ -300,20 +457,20 @@ export default {
       }
     },
     checkout() {
-      localStorage.setItem('nrtel', this.nrtel);
-      localStorage.setItem('tara', this.tara);
-      localStorage.setItem('cantitate', this.cantitate);
-      localStorage.setItem('oras', this.oras);
-      localStorage.setItem('strada', this.strada);
-      localStorage.setItem('numar', this.numar);
-      localStorage.setItem('bloc', this.bloc);
-      localStorage.setItem('apartament', this.apartament);
-      localStorage.setItem('scara', this.scara);
-      localStorage.setItem('etaj', this.etaj);
-      localStorage.setItem('nume', this.nume);
-      localStorage.setItem('prenume', this.prenume);
-      localStorage.setItem('mail', this.mail);
-      localStorage.setItem('detalii', this.detalii);
+      localStorage.setItem("nrtel", this.nrtel);
+      localStorage.setItem("tara", this.tara);
+      localStorage.setItem("cantitate", this.cantitate);
+      localStorage.setItem("oras", this.oras);
+      localStorage.setItem("strada", this.strada);
+      localStorage.setItem("numar", this.numar);
+      localStorage.setItem("bloc", this.bloc);
+      localStorage.setItem("apartament", this.apartament);
+      localStorage.setItem("scara", this.scara);
+      localStorage.setItem("etaj", this.etaj);
+      localStorage.setItem("nume", this.nume);
+      localStorage.setItem("prenume", this.prenume);
+      localStorage.setItem("mail", this.mail);
+      localStorage.setItem("detalii", this.detalii);
       const stripe = window.Stripe(
         "pk_live_51HtsBwDXwGLIBBjpKUhddM5rAq7DjJrWq2BoIhRJtBwBBkilPcGBil6Qt3ADTdlT06LSaP66ThMIzZXXyINfmRRL00fXTzwv7M"
       );
@@ -325,14 +482,15 @@ export default {
               quantity: this.cantitate,
             },
             {
-              price: this.strainatate ? "price_1HwV70DXwGLIBBjp5TAcjJah" : "price_1HuJOeDXwGLIBBjpFGVlYDhE",
-              quantity: 1
-            }
+              price: this.strainatate
+                ? "price_1HwV70DXwGLIBBjp5TAcjJah"
+                : "price_1HuJOeDXwGLIBBjpFGVlYDhE",
+              quantity: 1,
+            },
           ],
           mode: "payment",
-          successUrl: "http://www.immunitybysonslim.com/successa",
-          cancelUrl: "http://www.immunitybysonslim.com",
-          
+          successUrl: "http://www.immunitysonslim.com/successa",
+          cancelUrl: "http://www.immunitysonslim.com",
         })
         .then(function(result) {
           // If `redirectToCheckout` fails due to a browser or network
@@ -342,16 +500,20 @@ export default {
         });
     },
     cumpara() {
-      if(this.tara == "" || this.oras == "" || this.strada == "" || this.numar == "")
-        this.error_adresa = "Adresa este obligatorie!"
-      else{
+      if (
+        this.tara == "" ||
+        this.oras == "" ||
+        this.strada == "" ||
+        this.numar == ""
+      )
+        this.error_adresa = "Adresa este obligatorie!";
+      else {
         if (this.plata == "card") {
           this.checkout();
         } else {
           this.send_cash_mail();
         }
       }
-      
     },
     send_cash_mail() {
       var templateParams = {
@@ -368,23 +530,22 @@ export default {
         nrtel: this.nrtel,
         nume: this.nume,
         prenume: this.prenume,
-        mail: this.mail
+        mail: this.mail,
       };
       var newthis = this;
       emailjs.send("service_fjyef0t", "template_wk0vumu", templateParams).then(
         function(response) {
           console.log("SUCCESS!", response.status, response.text);
-          newthis.$router.push({name: 'Successb'})
+          newthis.$router.push({ name: "Successb" });
         },
         function(error) {
           console.log("FAILED...", error);
         }
       );
-      
     },
   },
   mounted() {
-     localStorage.setItem('nrtel', '0721123123');
+    localStorage.setItem("nrtel", "0721123123");
   },
 };
 </script>
@@ -616,23 +777,23 @@ input[type="number"] {
   margin-top: 5px;
 }
 
-.modal_wrapper_mobile{
+.modal_wrapper_mobile {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.cutie_mobile{
+.cutie_mobile {
   height: 100px;
   margin-right: 20px;
 }
 
-.modal_title_mobile{
+.modal_title_mobile {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
-  align-items:center;
+  align-items: center;
 }
 
 .product_details_mobile {
@@ -641,42 +802,41 @@ input[type="number"] {
   font-size: 15px;
 }
 
-.product_details_mobile p{
+.product_details_mobile p {
   font-size: 15px;
 }
 
-.product_details_mobile p:last-of-type{
+.product_details_mobile p:last-of-type {
   font-size: 20px;
   margin-top: 5px;
 }
 
-.descriere_mobile{
+.descriere_mobile {
   font-size: 10px;
 }
 
-.first_line_title_mobile{
+.first_line_title_mobile {
   font-size: 16px;
   font-weight: 900;
   margin-top: 15px;
 }
 
-.gratuita_mobile{
+.gratuita_mobile {
   font-size: 10px;
 }
 
-.check_mobile{
+.check_mobile {
   height: 12px;
   margin-left: 5px;
   margin-top: 5px;
 }
 
-.orizontal_line_mobile{
+.orizontal_line_mobile {
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
   margin-top: 20px;
-
 }
 
 .cantitate_mobile p {
@@ -684,7 +844,7 @@ input[type="number"] {
   font-weight: 900;
 }
 
-.cantitate_patrat_mobile{
+.cantitate_patrat_mobile {
   width: 60px;
   height: 40px;
   text-align: center;
@@ -693,56 +853,55 @@ input[type="number"] {
 }
 
 .alegere_mobil {
-    width: 60px;
-    height: 40px;
-    border: 1px solid black;
-    margin-right: 20px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 60px;
+  height: 40px;
+  border: 1px solid black;
+  margin-right: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.metoda_mobile{
+.metoda_mobile {
   font-size: 14px;
   font-weight: 900;
 }
 
-.metoda_div_mobile{
+.metoda_div_mobile {
   display: flex;
   flex-direction: row;
 
   margin-top: 10px;
 }
 
-.plus_mobile{
+.plus_mobile {
   font-size: 25px !important;
 }
 
-.plus_mobile:first-of-type{
+.plus_mobile:first-of-type {
   margin-left: 20px;
 }
 
-.adresa_livrare_mobil{
+.adresa_livrare_mobil {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-
 .command_button_modal_mobile {
-    width: 250px;
-    padding-left: 15px;
-    padding-right: 15px;
-    height: 40px;
-    background-color: #ffdf91;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    margin-top: 10px;
+  width: 250px;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 40px;
+  background-color: #ffdf91;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 10px;
 }
 
 .orizontal_line_two_mobile {
@@ -768,7 +927,6 @@ input[type="number"] {
   font-size: 16px;
   outline: none;
   margin-top: 15px;
-  
 }
 
 .area_text_mobile {
@@ -780,32 +938,32 @@ input[type="number"] {
   resize: none;
 }
 
-.taxa_livrare{
+.taxa_livrare {
   position: absolute;
-  bottom:0;
+  bottom: 0;
   left: 20px;
   font-size: 14px;
 }
 
 .card_icon_mobil {
-    height: 28px;
+  height: 28px;
 }
 
-.card_mobile{
+.card_mobile {
   margin-left: 10px;
   font-size: 13px;
 }
 
-.title_mobile{
+.title_mobile {
   font-size: 14px;
   font-weight: 900;
 }
 
-.tara{
+.tara {
   width: 240px;
 }
 
-.close_modal{
+.close_modal {
   position: absolute;
   right: 15px;
   top: 5px;
@@ -814,19 +972,18 @@ input[type="number"] {
   cursor: pointer;
 }
 
-.error{
+.error {
   color: red;
   font-size: 12px;
   margin-top: 10px;
 }
 
-.checkbox{
+.checkbox {
   margin-right: 5px;
 }
 
-.checkboxdiv{
+.checkboxdiv {
   display: flex;
   flex-direction: row;
 }
-
 </style>
