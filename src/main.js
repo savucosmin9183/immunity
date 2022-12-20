@@ -5,7 +5,7 @@ import {MediaQueries} from 'vue-media-queries';
 import{ init } from 'emailjs-com';
 import router from './router'
 
-init("user_rRupyXkWqsXLDbeKmHA6w");
+init("kiHKtawYV14KLsk-x");
 
 const mediaQueries = new MediaQueries();
 
